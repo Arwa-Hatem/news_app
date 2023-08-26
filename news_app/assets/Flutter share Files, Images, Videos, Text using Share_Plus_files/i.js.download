@@ -1,0 +1,4 @@
+(function() {
+	(document.createElement('IMG')).src = 'https://creativecdn.com/cm-notify?pi=mgid&gdpr=0&gdpr_consent=&us_privacy=';
+	(document.createElement('IMG')).src = 'https://prebid.a-mo.net/cchain/0?gdpr=0&gdpr_consent=&us_privacy=&cb=https%3A//cm.mgid.com/m%3Fcdsp%3D779131%26c%3D';
+})()

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/first_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/data/cubites/cubit/get_news_cubit.dart';
 import 'package:news_app/forth_screen.dart';
+import 'package:news_app/newsscreen.dart';
 import 'package:news_app/second_screen.dart';
 import 'package:news_app/third_screen.dart';
 
@@ -13,15 +15,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: ForthScreen());
-    //home: FirstScreen());
-    //home: ThirdScreen());
-    //    home: SecondScreen());
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<GetNewsCubit>(
+            create: (BuildContext context) => GetNewsCubit(),
+          ),
+        ],
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            home: newsscreen()));
   }
 }
