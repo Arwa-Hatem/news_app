@@ -12,7 +12,7 @@ import 'data/cubites/cubit/get_news_cubit.dart';
 
 class newsscreen extends StatelessWidget {
   newsscreen({super.key});
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class newsscreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Row(
@@ -33,7 +33,6 @@ class newsscreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(vertical: 5),
-
                       suffixIcon: const Icon(
                         Icons.search,
                         color: Color.fromARGB(255, 107, 105, 105),
@@ -43,18 +42,15 @@ class newsscreen extends StatelessWidget {
                           fontSize: 12,
                           color: Colors.grey,
                           fontFamily: 'Nunito'),
-
                       focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(
                             color: Color.fromARGB(255, 178, 177, 183)),
                       ),
-                      // border: ,
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
                             color: Color.fromARGB(255, 201, 195, 195)),
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      // border:
                     ),
                   ),
                 ),
@@ -80,7 +76,7 @@ class newsscreen extends StatelessWidget {
                   onPressed: () async {
                     context.read<GetNewsCubit>().getNews();
                   },
-                  child: Text(
+                  child: const Text(
                     ' Lastes News',
                     style: TextStyle(
                       fontSize: 22,
@@ -89,10 +85,10 @@ class newsscreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 110,
                 ),
-                Text(
+                const Text(
                   ' See All',
                   style: TextStyle(
                     fontSize: 12,
@@ -102,8 +98,8 @@ class newsscreen extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.arrow_right_alt),
-                  color: Color.fromARGB(255, 11, 4, 214),
+                  icon: const Icon(Icons.arrow_right_alt),
+                  color: const Color.fromARGB(255, 11, 4, 214),
                 ),
               ],
             ),
@@ -111,14 +107,14 @@ class newsscreen extends StatelessWidget {
           BlocBuilder<GetNewsCubit, GetNewsState>(
             builder: (context, state) {
               if (state is GetNewsInitial) {
-                return Text("Please press the button to get news");
+                return const Text("Please press the button to get news");
               } else if (state is GetNewsLoading) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (state is GetNewsSuccess) {
                 return Expanded(
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Expanded(
@@ -141,7 +137,7 @@ class newsscreen extends StatelessWidget {
                                 ;
                               },
                               child: Container(
-                                margin: EdgeInsets.all(5),
+                                margin: const EdgeInsets.all(5),
                                 width: MediaQuery.of(context).size.width *
                                     380 /
                                     200,
@@ -163,7 +159,7 @@ class newsscreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        SizedBox(height: 30),
+                                        const SizedBox(height: 30),
                                         Container(
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -172,7 +168,7 @@ class newsscreen extends StatelessWidget {
                                               state.response.articles[index]
                                                       .author ??
                                                   "",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w300,
                                                   color: Colors.white),
@@ -185,7 +181,7 @@ class newsscreen extends StatelessWidget {
                                             child: Text(
                                               state.response.articles[index]
                                                   .description,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.w900,
                                                 color: Colors.white,
@@ -193,14 +189,14 @@ class newsscreen extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        Spacer(),
+                                        const Spacer(),
                                         Container(
-                                          padding: EdgeInsets.all(8),
+                                          padding: const EdgeInsets.all(8),
                                           child: Text(
                                             state.response.articles[index]
                                                     .publishedAt ??
                                                 "",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: 11,
                                               color: Colors.white,
                                               fontWeight: FontWeight.w300,
@@ -220,7 +216,7 @@ class newsscreen extends StatelessWidget {
                   ),
                 );
               } else {
-                return Center(
+                return const Center(
                   child: Text("Somethinge went wrone"),
                 );
               }
